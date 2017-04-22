@@ -9,6 +9,7 @@
   "author": "Leandro Alonso",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "winston": "^2.3.1"
   }
 }
