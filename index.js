@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const log = require('./libs/log')(module)
+const config = require('./libs/config')
+const ArticleModel = require('./libs/mongoose').ArticleModel
 const app = express()
 
 app.use(express.static(path.join(__dirname, "public")))
@@ -23,6 +25,6 @@ app.use((err, req, res, next) => {
   return
 })
 
-app.listen(1337, () => {
+app.listen(config.get('port'), () => {
   log.info('Express server listening on port 1337')
 })
