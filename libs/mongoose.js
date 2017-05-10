@@ -15,29 +15,25 @@ db.once('open', () => {
 
 const Schema = mongoose.Schema
 
-// Schemas
-var Images = new Schema({
-    kind: {
-        type: String,
-        enum: ['thumbnail', 'detail'],
-        required: true
-    },
-    url: { type: String, required: true }
-});
+const Restaurant = new Schema({
+    _id: { type: String },
+    name: { type: String, required: true },
+    phone: { type: Number },
+    deliveryFee: { type: Number },
+    image: { type: String, required: true },
+    menu: { type: String, required: true }
+})
 
-var Article = new Schema({
-    title: { type: String, required: true },
-    author: { type: String, required: true },
-    description: { type: String, required: true },
-    images: [Images],
-    modified: { type: Date, default: Date.now }
-});
 
-// validation
-Article.path('title').validate(function (v) {
-    return v.length > 5 && v.length < 70;
-});
+const Order = new Schema({
+    restaurantId: { type: Schema.Types.ObjectId, ref: 'Restaurant' },
+    by: { type: String, required: true },
+    deliveryFee: { type: Number },
+    closes: { type: Date, required: true },
+    delivery: { type: Date, required: true }
+})
 
-var ArticleModel = mongoose.model('Article', Article);
+const RestaurantModel = mongoose.model('Restaurant', Restaurant)
+const OrderModel = mongoose.model('Order', Order)
 
-module.exports.ArticleModel = ArticleModel;
+module.exports.OrderModel = OrderModel
