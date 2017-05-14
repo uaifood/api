@@ -3,8 +3,22 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const log = require('./libs/log')(module)
 const config = require('./libs/config')
-const OrderModel = require('./libs/mongoose').OrderModel
 const app = express()
+const mongoose = require('mongoose');
+
+require('./libs/mongoose')
+
+const fs = require('fs');
+const join = require('path').join;
+
+const models = join(__dirname, 'app/models');
+
+// Bootstrap models
+fs.readdirSync(models)
+  .filter(file => ~file.search(/^[^\.].*\.js$/))
+  .forEach(file => require(join(models, file)));
+
+const OrderModel = mongoose.model('Order');
 
 app.use(express.static(path.join(__dirname, "public")))
 app.use(bodyParser.json())
