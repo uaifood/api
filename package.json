@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha --recursive"
   },
   "author": "Leandro Alonso",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "sinon": "^2.2.0",
-    "sinon-mongoose": "^2.0.1"
+    "sinon-mongoose": "^2.0.1",
+    "supertest": "^3.0.0"
   }
 }
