@@ -12,7 +12,7 @@ exports.index = (req, res) => {
       return res.send(orders)
     } else {
       res.statusCode = 500
-      log.error('Internal error(%d): %s',res.statusCode,err.message)
+      console.log('Internal error(%d): %s',res.statusCode,err.message)
       return res.send({ error: 'Server error' })
     }
   })

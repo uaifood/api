@@ -4,6 +4,7 @@
   "description": "uaiFood REST API",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "Leandro Alonso",
