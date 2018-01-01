@@ -8,6 +8,7 @@ const Order = mongoose.model('Order')
 const Restaurant = mongoose.model('Restaurant')
 
 const _restaurant = {
+    "_id": "41224d776a326fb40f000001",
     "name": "Restaurant",
     "phone": 3135662809,
     "deliveryFee": 0,
